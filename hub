@@ -101,7 +101,7 @@ def main():
     sys.argv.pop()
     try:
         tester = sys.argv[0]
-        if tester == '-stdin':
+        if tester == '-stdin' or tester == '-s' or tester == 's' :
             a = ""
             for line in sys.stdin:
                 a += line
