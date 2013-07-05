@@ -11,7 +11,7 @@
 
 In ~/.netrc, put:
 
-``machine paste.unixhub.net login beastie password beastieisderp12``    
+``machine paste.unixhub.net login <username> password <password>``    
 
 ###Usage
 
