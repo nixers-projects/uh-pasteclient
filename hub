@@ -29,7 +29,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 Usage: hub filename
 for STDIN: cat somefile| hub -stdin
 '''
-import mechanize,re,sys
+import mechanize,re,sys,os
 
 HEADER = '\033[95m'
 OKBLUE = '\033[94m'
@@ -80,7 +80,7 @@ class hub_uploader(object):
     
     def readconfigs(self):
         try:
-            o = open(".netrc",'r').readlines()
+            o = open(os.getenv("HOME") +"/.netrc",'r').readlines()
             for o_ in o:
                 if "paste.unixhub.net" in o_:
                     o_ = o_.split(" ")
