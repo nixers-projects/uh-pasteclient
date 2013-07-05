@@ -1,4 +1,4 @@
-##Unixhub Pastebin Client
+##UnixHub Pastebin Client
 
 ###Install
 
@@ -8,6 +8,10 @@
 * chmod +x it
 * Make sure you have everything set in your .netrc on a single line
 * That's it
+
+In ~/.netrc, put:
+
+``machine paste.unixhub.net login beastie password beastieisderp12``    
 
 ###Usage
 
