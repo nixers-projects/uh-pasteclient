@@ -6,7 +6,6 @@
 * Install the mechanize module
 * Copy the file to your binary location
 * chmod +x it
-* That's it
 
 In ~/.netrc, put:
 
