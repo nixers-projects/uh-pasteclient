@@ -6,8 +6,6 @@
 * Install the mechanize module
 * Copy the file to your binary location
 * chmod +x it
-* Make sure you have everything set in your .netrc on a single line
-> machine paste.xinu.at login my_username password my_secret_password
 * That's it
 
 In ~/.netrc, put:
