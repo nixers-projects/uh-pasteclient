@@ -15,7 +15,7 @@ In ~/.netrc, put:
 
 Simply use it as followed:
     For uploading a file: hub filename filename2 filename3  
-    For uploading what you STDIN in it: cat file1| hub -stdin
+    For uploading what you STDIN in it: cat file1| hub -s
 
 Written by venam
 
