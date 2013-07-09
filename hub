@@ -74,9 +74,9 @@ class hub_uploader(object):
 
     def getting_link(self,br):
         try:
-            print re.findall("};\n\t\twindow.paste_base = \'(.*)';\n\t\t",br.response().read())[0]
+            print re.findall("};\n\t\twindow.paste_base = \'([^<>]*)';\n\t\t",br.response().read())[0]
         except:
-            print re.findall("e:</p>\n\t<p>\n\t\t\t<a href=\"(.*)\">http://paste.uni",br.response().read())[0]
+            print re.findall("e:</p>\n\t<p>\n\t\t\t<a href=\"([^>]*)\">http://paste.uni",br.response().read())[0]
     
     def readconfigs(self):
         try:
