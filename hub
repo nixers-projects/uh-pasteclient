@@ -65,7 +65,7 @@ class hub_uploader(object):
         print INFO+"Uploading"
         br.submit()
         if not self.text_or_not:
-            print PLUS + "Finished uploading "+self.filename 
+            print PLUS + "Finished uploading "+self.filename
         return br
 
     def login_in(self,br):
@@ -73,11 +73,15 @@ class hub_uploader(object):
         return br
 
     def getting_link(self,br):
-        try:
-            print re.findall("};\n\t\twindow.paste_base = \'([^<>]*)';\n\t\t",br.response().read())[0]
-        except:
-            print re.findall("e:</p>\n\t<p>\n\t\t\t<a href=\"([^>]*)\">http://paste.uni",br.response().read())[0]
-    
+        if "Fatal error: Uncaught exception" in br.response().read():
+            aka = re.findall(" File->index\('([^\)]*)'\)",br.response().read())
+            print "http://paste.unixhub.net/index.php/"+aka[0]
+        else:
+            try:
+                print re.findall("};\n\t\twindow.paste_base = \'([^<>]*)';\n\t\t",br.response().read())[0]
+            except:
+                print re.findall("<a href=\"([^>]*)\">http://paste.uni",br.response().read())[0]
+
     def readconfigs(self):
         try:
             o = open(os.getenv("HOME") +"/.netrc",'r').readlines()
@@ -112,7 +116,8 @@ def main():
                 HUB = hub_uploader(arg)
                 HUB.procedure()
             print INFO+"END"
-    except:
+    except Exception,e:
+        print e
         print MINUS + "Usage: hub file or cat file|hub -stdin"
 
 if __name__ =='__main__':
