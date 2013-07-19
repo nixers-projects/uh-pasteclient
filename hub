@@ -31,6 +31,12 @@ for STDIN: cat somefile| hub -stdin
 '''
 import mechanize,re,sys,os
 
+__version__    = "1.0"
+__author__     = "venam"
+__maintainer__ = "venam"
+__email__      = "patrick at unixhub.net"
+__status__     = "working, the site changed so I changed the pkg also"
+
 HEADER = '\033[95m'
 OKBLUE = '\033[94m'
 OKGREEN = '\033[92m'
