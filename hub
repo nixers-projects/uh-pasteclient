@@ -101,11 +101,11 @@ class hub_uploader(object):
         self.getting_link(br)
 
 def main():
-    sys.argv.reverse()
-    sys.argv.pop()
+    sys.argv.remove(sys.argv[0])
     try:
         tester = sys.argv[0]
         if tester == '-stdin' or tester == '-s' or tester == 's' :
+            print INFO + "From STDIN"
             a = ""
             for line in sys.stdin:
                 a += line
