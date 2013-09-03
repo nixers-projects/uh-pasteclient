@@ -1,6 +1,5 @@
 #
 # UH uploader perl version
-# Under the UH License
 # Coded by Venam
 #
 
@@ -109,7 +108,20 @@ else {
 		if ($arg) {
 			$br->get("http://paste.unixhub.net/index.php/file/index");
 			uploading($arg);
-			print $br->uri()."\n";
+			if ($br->content =~ /<p>You can get your file\(s\) here:<\/p>/){
+				my @matches = split /\n/, $br->content;
+				for (@matches) {
+					if ($_ =~ /<a href="http:\/\/paste.unixhub.net\/index.php/
+						&& $_ =~ /\/<\/a><br \/>/ ) {
+						my @matches2 = split /"/, $_;
+						print $matches2[1] . "\n" ;
+						exit(0);
+					}
+				}
+			}
+			else {
+				print $br->uri()."\n";
+			}
 		}
 	}
 }
